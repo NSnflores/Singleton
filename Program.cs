@@ -12,28 +12,40 @@ namespace SingletonTest
 			return singletonObject;
 		}
 	}
-	class NonSingletonModifiedClass
+	//Clase estatica --- Cumple lo mismo que el singleton anterior
+	class NonSingletonStaticClass
 	{
 		public static int a = 1;
 	}
+
 	class MainClass
 	{
-		static void modifyNonSingleton()
+		//Modificamos la clase estatica
+		static void modifyStatic()
 		{
-			NonSingletonModifiedClass.a = 2;
+			NonSingletonStaticClass.a = 2;
 		}
+		//Modificamos  el objeto
 		static void modifySingletonObject()
 		{
-			SingletonClass.getInstance ().a = 2;
+			SingletonClass.getInstance().a = 2;
 		}
 		public static void Main (string[] args)
 		{
-			Console.WriteLine (NonSingletonModifiedClass.a);
+			Console.WriteLine (NonSingletonStaticClass.a);
 			Console.WriteLine (SingletonClass.getInstance().a);
-			modifyNonSingleton();
+			modifyStatic();
 			modifySingletonObject();
-			Console.WriteLine (NonSingletonModifiedClass.a);
-			Console.WriteLine (SingletonClass.getInstance().a);
+			Console.WriteLine(NonSingletonStaticClass.a);
+			Console.WriteLine(SingletonClass.getInstance().a);
+
+			//OUTPUTS
+			/*
+				1
+				1
+				2
+				2
+			*/
 		}
 	}
 }
