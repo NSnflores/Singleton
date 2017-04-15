@@ -32,8 +32,8 @@ namespace SingletonTest
 		}
 		public static void Main (string[] args)
 		{
-			Console.WriteLine (NonSingletonStaticClass.a);
-			Console.WriteLine (SingletonClass.getInstance().a);
+			Console.WriteLine(NonSingletonStaticClass.a);
+			Console.WriteLine(SingletonClass.getInstance().a);
 			modifyStatic();
 			modifySingletonObject();
 			Console.WriteLine(NonSingletonStaticClass.a);
