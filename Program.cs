@@ -5,22 +5,29 @@ namespace SingletonTest
 	class SingletonClass 
 	{
 		private static  SingletonClass singletonObject = new SingletonClass();
+
 		private SingletonClass(){}
+
 		public int a = 1;
+
 		public static SingletonClass getInstance()
 		{
 			return singletonObject;
 		}
+
 	}
-	//Clase estatica --- Cumple lo mismo que el singleton anterior
+	//Clase con solo atributos estaticos --- Cumple lo mismo que el singleton anterior
 	class NonSingletonStaticClass
 	{
+		//privado para no crear instancias
+		private NonSingletonStaticClass(){}
+
 		public static int a = 1;
 	}
 
 	class MainClass
 	{
-		//Modificamos la clase estatica
+		//Modificamos la clase con solo atributos estaticos
 		static void modifyStatic()
 		{
 			NonSingletonStaticClass.a = 2;
@@ -34,8 +41,11 @@ namespace SingletonTest
 		{
 			Console.WriteLine(NonSingletonStaticClass.a);
 			Console.WriteLine(SingletonClass.getInstance().a);
+
+			//Modificamos el singleton y la clase con atributos estaticos
 			modifyStatic();
 			modifySingletonObject();
+
 			Console.WriteLine(NonSingletonStaticClass.a);
 			Console.WriteLine(SingletonClass.getInstance().a);
 
